@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -g
+
+terminal: main.o funciones.o
+	$(CC) $(CFLAGS) -o terminal main.o funciones.o
+
+main.o: main.c estructuras.h
+	$(CC) $(CFLAGS) -c main.c
+
+funciones.o: funciones.c estructuras.h
+	$(CC) $(CFLAGS) -c funciones.c
+
+clean:
+	rm -f *.o terminal
